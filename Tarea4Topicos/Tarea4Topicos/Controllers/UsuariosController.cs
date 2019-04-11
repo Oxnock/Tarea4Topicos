@@ -13,6 +13,7 @@ namespace Tarea4Topicos.Controllers
     public class UsuariosController : Controller
     {
         private readonly ApplicationDbContext _context;
+        public static bool EsAdmin = false;
 
         public UsuariosController(ApplicationDbContext context)
         {
