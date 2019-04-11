@@ -12539,11 +12539,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jsezu\\Documents\\Visual Studio 2017\\Projects\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos.csproj",
+      "projectUniqueName": "C:\\Users\\jsezu\\Documents\\GitHub\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos.csproj",
       "projectName": "Tarea4Topicos",
-      "projectPath": "C:\\Users\\jsezu\\Documents\\Visual Studio 2017\\Projects\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos.csproj",
+      "projectPath": "C:\\Users\\jsezu\\Documents\\GitHub\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos.csproj",
       "packagesPath": "C:\\Users\\jsezu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jsezu\\Documents\\Visual Studio 2017\\Projects\\Tarea4Topicos\\Tarea4Topicos\\obj\\",
+      "outputPath": "C:\\Users\\jsezu\\Documents\\GitHub\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
