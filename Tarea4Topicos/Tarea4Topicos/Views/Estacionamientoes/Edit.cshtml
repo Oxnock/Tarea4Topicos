@@ -13,41 +13,16 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="EstacionamientoId" />
-            <div class="form-group">
-                <label asp-for="FechaIngreso" class="control-label"></label>
-                <input asp-for="FechaIngreso" class="form-control" />
-                <span asp-validation-for="FechaIngreso" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaSalida" class="control-label"></label>
-                <input asp-for="FechaSalida" class="form-control" />
-                <span asp-validation-for="FechaSalida" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TarifaBasica" class="control-label"></label>
-                <input asp-for="TarifaBasica" class="form-control" />
-                <span asp-validation-for="TarifaBasica" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Ganancia" class="control-label"></label>
-                <input asp-for="Ganancia" class="form-control" />
-                <span asp-validation-for="Ganancia" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Mantenimiento" class="control-label"></label>
-                <input asp-for="Mantenimiento" class="form-control" />
-                <span asp-validation-for="Mantenimiento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImpuestoVenta" class="control-label"></label>
-                <input asp-for="ImpuestoVenta" class="form-control" />
-                <span asp-validation-for="ImpuestoVenta" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TotalAPagar" class="control-label"></label>
-                <input asp-for="TotalAPagar" class="form-control" />
-                <span asp-validation-for="TotalAPagar" class="text-danger"></span>
-            </div>
+           
+			<div class="form-group">
+
+				<label asp-for="FechaSalida" class="control-label"></label>
+				<input type="submit" value="Salida" class="btn btn-default" />
+				@*<input asp-for="FechaSalida" class="form-control" />
+				<span asp-validation-for="FechaSalida" class="text-danger"></span>*@
+
+			</div>
+           
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>

@@ -13,11 +13,32 @@ namespace Tarea4Topicos.Controllers
     public class EstacionamientoesController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+        
         public EstacionamientoesController(ApplicationDbContext context)
         {
             _context = context;
         }
+
+        //public async Task<ActionResult> ObtenerFechaInicialAsync(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var estacionamiento = await _context.Estacionamiento
+        //        .FirstOrDefaultAsync(m => m.EstacionamientoId == id);
+        //    if (estacionamiento == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    estacionamiento.FechaSalida = DateTime.Now;
+        //    _context.Update(estacionamiento);
+
+
+        //    return View(estacionamiento);
+        //}
 
         // GET: Estacionamientoes
         public async Task<IActionResult> Index()
@@ -54,6 +75,32 @@ namespace Tarea4Topicos.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ObtenerFechaInicialAsync (int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var estacionamiento = await _context.Estacionamiento
+                .FirstOrDefaultAsync(m => m.EstacionamientoId == id);
+            if (estacionamiento == null)
+            {
+                return NotFound();
+            }
+
+            if (estacionamiento.FechaSalida != null)
+            {
+                estacionamiento.FechaSalida = DateTime.Now;
+                _context.Update(estacionamiento);
+            }
+
+            return View(estacionamiento);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("EstacionamientoId,FechaIngreso,FechaSalida,TarifaBasica,Ganancia,Mantenimiento,ImpuestoVenta,TotalAPagar")] Estacionamiento estacionamiento)
         {
             if (ModelState.IsValid)
@@ -73,11 +120,19 @@ namespace Tarea4Topicos.Controllers
                 return NotFound();
             }
 
-            var estacionamiento = await _context.Estacionamiento.FindAsync(id);
+            var estacionamiento = await _context.Estacionamiento
+                .FirstOrDefaultAsync(m => m.EstacionamientoId == id);
             if (estacionamiento == null)
             {
                 return NotFound();
             }
+
+            if (estacionamiento.FechaSalida != null)
+            {
+                estacionamiento.FechaSalida = DateTime.Now;
+                _context.Update(estacionamiento);
+            }
+
             return View(estacionamiento);
         }
 

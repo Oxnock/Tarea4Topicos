@@ -8726,7 +8726,7 @@
       ]
     },
     "System.Diagnostics.DiagnosticSource/4.5.0": {
-      "sha512": "eIHRELiYDQvsMToML81QFkXEEYXUSUT2F28t1SGrevWqP+epFdw80SyAXIKTXOHrIEXReFOEnEr7XlGiC2GgOg==",
+      "sha512": "UumL3CJklk5WyEt0eImPmjeuyY1JgJ7Thmg2hAeZGKCv+9iuuAsoc2wcXjypdo3J8VNEmVCH2Bgn/kIw8NI2bA==",
       "type": "package",
       "path": "system.diagnostics.diagnosticsource/4.5.0",
       "files": [
@@ -12533,23 +12533,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jsezu\\.nuget\\packages\\": {},
+    "C:\\Users\\PC\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jsezu\\Documents\\GitHub\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos.csproj",
+      "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos.csproj",
       "projectName": "Tarea4Topicos",
-      "projectPath": "C:\\Users\\jsezu\\Documents\\GitHub\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos.csproj",
-      "packagesPath": "C:\\Users\\jsezu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jsezu\\Documents\\GitHub\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos\\obj\\",
+      "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos.csproj",
+      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Tarea4Topicos\\Tarea4Topicos\\Tarea4Topicos\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\jsezu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
