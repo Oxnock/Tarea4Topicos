@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Tarea4Topicos.Data.Migrations
+namespace Tarea4Topicos.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class Prueba1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -45,6 +45,48 @@ namespace Tarea4Topicos.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Parqueo",
+                columns: table => new
+                {
+                    ParqueoId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Descripcion = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Parqueo", x => x.ParqueoId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TipoVehiculo",
+                columns: table => new
+                {
+                    TipoVehiculoID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Descripcion = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TipoVehiculo", x => x.TipoVehiculoID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Usuario",
+                columns: table => new
+                {
+                    UsuarioId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Nombre = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(nullable: true),
+                    EsAdmin = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Usuario", x => x.UsuarioId);
                 });
 
             migrationBuilder.CreateTable(
@@ -153,6 +195,60 @@ namespace Tarea4Topicos.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Vehiculo",
+                columns: table => new
+                {
+                    VehiculoId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    TipoVehiculoRefTipoVehiculoID = table.Column<int>(nullable: true),
+                    Placa = table.Column<int>(nullable: false),
+                    Anio = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Vehiculo", x => x.VehiculoId);
+                    table.ForeignKey(
+                        name: "FK_Vehiculo_TipoVehiculo_TipoVehiculoRefTipoVehiculoID",
+                        column: x => x.TipoVehiculoRefTipoVehiculoID,
+                        principalTable: "TipoVehiculo",
+                        principalColumn: "TipoVehiculoID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Estacionamiento",
+                columns: table => new
+                {
+                    EstacionamientoId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    VehiculoId1 = table.Column<int>(nullable: true),
+                    ParqueoId1 = table.Column<int>(nullable: true),
+                    FechaIngreso = table.Column<DateTime>(nullable: false),
+                    FechaSalida = table.Column<DateTime>(nullable: false),
+                    TarifaBasica = table.Column<int>(nullable: false),
+                    Ganancia = table.Column<int>(nullable: false),
+                    Mantenimiento = table.Column<int>(nullable: false),
+                    ImpuestoVenta = table.Column<int>(nullable: false),
+                    TotalAPagar = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Estacionamiento", x => x.EstacionamientoId);
+                    table.ForeignKey(
+                        name: "FK_Estacionamiento_Parqueo_ParqueoId1",
+                        column: x => x.ParqueoId1,
+                        principalTable: "Parqueo",
+                        principalColumn: "ParqueoId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Estacionamiento_Vehiculo_VehiculoId1",
+                        column: x => x.VehiculoId1,
+                        principalTable: "Vehiculo",
+                        principalColumn: "VehiculoId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -191,6 +287,21 @@ namespace Tarea4Topicos.Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Estacionamiento_ParqueoId1",
+                table: "Estacionamiento",
+                column: "ParqueoId1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Estacionamiento_VehiculoId1",
+                table: "Estacionamiento",
+                column: "VehiculoId1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Vehiculo_TipoVehiculoRefTipoVehiculoID",
+                table: "Vehiculo",
+                column: "TipoVehiculoRefTipoVehiculoID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -211,10 +322,25 @@ namespace Tarea4Topicos.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Estacionamiento");
+
+            migrationBuilder.DropTable(
+                name: "Usuario");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Parqueo");
+
+            migrationBuilder.DropTable(
+                name: "Vehiculo");
+
+            migrationBuilder.DropTable(
+                name: "TipoVehiculo");
         }
     }
 }

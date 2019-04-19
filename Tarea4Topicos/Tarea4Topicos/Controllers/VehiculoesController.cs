@@ -22,6 +22,9 @@ namespace Tarea4Topicos.Controllers
         // GET: Vehiculoes
         public async Task<IActionResult> Index()
         {
+            ViewBag.Tipos = _context.TipoVehiculo.ToList().Select(s => new SelectListGroup());
+            
+           
             return View(await _context.Vehiculo.ToListAsync());
         }
 

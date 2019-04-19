@@ -12,6 +12,7 @@ namespace Tarea4Topicos.Controllers
     {
         public IActionResult Index()
         {
+            
             return View();
         }
 
