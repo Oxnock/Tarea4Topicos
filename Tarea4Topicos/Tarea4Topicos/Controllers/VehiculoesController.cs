@@ -22,9 +22,9 @@ namespace Tarea4Topicos.Controllers
         // GET: Vehiculoes
         public async Task<IActionResult> Index()
         {
-            ViewBag.Tipos = _context.TipoVehiculo.ToList().Select(s => new SelectListGroup());
-            
            
+
+
             return View(await _context.Vehiculo.ToListAsync());
         }
 
@@ -38,17 +38,21 @@ namespace Tarea4Topicos.Controllers
 
             var vehiculo = await _context.Vehiculo
                 .FirstOrDefaultAsync(m => m.VehiculoId == id);
+            
             if (vehiculo == null)
             {
                 return NotFound();
             }
-
+            
             return View(vehiculo);
         }
 
         // GET: Vehiculoes/Create
         public IActionResult Create()
         {
+            var lTipoVehiculos = _context.TipoVehiculo.ToList();
+            ViewBag.listaTipoVehiculos = new SelectList(lTipoVehiculos, "TipoVehiculoID", "Descripcion");
+
             return View();
         }
 
@@ -57,12 +61,19 @@ namespace Tarea4Topicos.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VehiculoId,Placa,Anio")] Vehiculo vehiculo)
+        public async Task<IActionResult> Create([Bind("VehiculoId,Placa,Anio,TipoVehiculoRef")] Vehiculo vehiculo)
         {
+          
             if (ModelState.IsValid)
             {
+                var Tipo = await _context.TipoVehiculo
+                .FirstOrDefaultAsync(m => m.TipoVehiculoID == vehiculo.TipoVehiculoRef.TipoVehiculoID);
+
+                vehiculo.TipoVehiculoRef = Tipo;
+
                 _context.Add(vehiculo);
                 await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
             return View(vehiculo);

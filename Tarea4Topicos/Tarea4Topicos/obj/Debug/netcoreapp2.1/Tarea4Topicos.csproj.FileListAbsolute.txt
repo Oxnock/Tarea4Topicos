@@ -167,3 +167,4 @@ C:\Users\Fabian\OneDrive\Documents\GitHub\Tarea4Topicos\Tarea4Topicos\Tarea4Topi
 C:\Users\Fabian\OneDrive\Documents\GitHub\Tarea4Topicos\Tarea4Topicos\Tarea4Topicos\obj\Debug\netcoreapp2.1\Tarea4Topicos.dll
 C:\Users\Fabian\OneDrive\Documents\GitHub\Tarea4Topicos\Tarea4Topicos\Tarea4Topicos\obj\Debug\netcoreapp2.1\Tarea4Topicos.pdb
 C:\Users\Fabian\OneDrive\Documents\GitHub\Tarea4Topicos\Tarea4Topicos\Tarea4Topicos\obj\Debug\netcoreapp2.1\Tarea4Topicos.csproj.CopyComplete
+C:\Users\Fabian\OneDrive\Documents\GitHub\Tarea4Topicos\Tarea4Topicos\Tarea4Topicos\obj\Debug\netcoreapp2.1\Tarea4Topicos.csprojAssemblyReference.cache
