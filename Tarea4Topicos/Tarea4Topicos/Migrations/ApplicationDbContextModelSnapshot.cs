@@ -329,11 +329,11 @@ namespace Tarea4Topicos.Migrations
             modelBuilder.Entity("Tarea4Topicos.Models.Estacionamiento", b =>
                 {
                     b.HasOne("Tarea4Topicos.Models.Parqueo", "ParqueoId")
-                        .WithMany()
+                        .WithMany("ListaEstacionamientos")
                         .HasForeignKey("ParqueoId1");
 
                     b.HasOne("Tarea4Topicos.Models.Vehiculo", "VehiculoId")
-                        .WithMany()
+                        .WithMany("ListaEstacionamientos")
                         .HasForeignKey("VehiculoId1");
                 });
 

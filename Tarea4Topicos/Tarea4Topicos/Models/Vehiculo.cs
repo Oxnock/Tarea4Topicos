@@ -13,7 +13,10 @@ namespace Tarea4Topicos.Models
         public int Placa { get; set; }
         public int Anio { get; set; }
 
-        
-        
+
+        public ICollection<Estacionamiento> ListaEstacionamientos { get; set; }
+
+
+
     }
 }

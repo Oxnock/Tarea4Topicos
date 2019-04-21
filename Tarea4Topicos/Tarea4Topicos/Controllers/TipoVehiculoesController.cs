@@ -33,7 +33,7 @@ namespace Tarea4Topicos.Controllers
                 return NotFound();
             }
 
-            var tipoVehiculo = await _context.TipoVehiculo
+            var tipoVehiculo = await _context.TipoVehiculo.Include(x=>x.ListaVehiculos)
                 .FirstOrDefaultAsync(m => m.TipoVehiculoID == id);
             if (tipoVehiculo == null)
             {

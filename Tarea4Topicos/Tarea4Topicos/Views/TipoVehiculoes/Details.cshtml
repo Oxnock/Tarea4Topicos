@@ -16,7 +16,28 @@
         <dd>
             @Html.DisplayFor(model => model.Descripcion)
         </dd>
+
     </dl>
+    <table class="table">
+        <tr>
+            <th>Id Vehiculo</th>
+            <th>Placa</th>
+            <th>Año</th>
+
+        </tr>
+        @foreach (var item in Model.ListaVehiculos)
+        {
+            <tr>
+                <td>@item.VehiculoId</td>
+                <td>
+                    @item.Placa
+                </td>
+                <td >
+                    @item.Anio
+                </td>
+            </tr>
+        }
+    </table>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.TipoVehiculoID">Edit</a> |

@@ -32,9 +32,11 @@ namespace Tarea4Topicos.Controllers
             {
                 return NotFound();
             }
-
-            var parqueo = await _context.Parqueo
+           
+            var parqueo = await _context.Parqueo.Include(m=>m.ListaEstacionamientos).Include("ListaEstacionamientos.VehiculoId")
                 .FirstOrDefaultAsync(m => m.ParqueoId == id);
+            
+
             if (parqueo == null)
             {
                 return NotFound();

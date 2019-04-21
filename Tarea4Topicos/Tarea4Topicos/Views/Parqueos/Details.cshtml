@@ -17,6 +17,24 @@
             @Html.DisplayFor(model => model.Descripcion)
         </dd>
     </dl>
+    <table class="table">
+        <tr>
+            <th>Id Estacionamiento</th>
+            <th>Id Vehiculo</th>
+            <th>Placa Vehiculo</th>
+
+
+        </tr>
+        @foreach (var item in Model.ListaEstacionamientos)
+        {
+    <tr>
+        <td>@item.EstacionamientoId</td>
+        <td>@item.VehiculoId.VehiculoId</td>
+        <td>@item.VehiculoId.Placa</td>
+
+    </tr>
+        }
+    </table>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.ParqueoId">Edit</a> |

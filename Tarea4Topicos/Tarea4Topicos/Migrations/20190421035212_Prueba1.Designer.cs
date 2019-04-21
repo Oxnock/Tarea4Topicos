@@ -10,7 +10,7 @@ using Tarea4Topicos.Data;
 namespace Tarea4Topicos.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190419024210_Prueba1")]
+    [Migration("20190421035212_Prueba1")]
     partial class Prueba1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -331,11 +331,11 @@ namespace Tarea4Topicos.Migrations
             modelBuilder.Entity("Tarea4Topicos.Models.Estacionamiento", b =>
                 {
                     b.HasOne("Tarea4Topicos.Models.Parqueo", "ParqueoId")
-                        .WithMany()
+                        .WithMany("ListaEstacionamientos")
                         .HasForeignKey("ParqueoId1");
 
                     b.HasOne("Tarea4Topicos.Models.Vehiculo", "VehiculoId")
-                        .WithMany()
+                        .WithMany("ListaEstacionamientos")
                         .HasForeignKey("VehiculoId1");
                 });
 

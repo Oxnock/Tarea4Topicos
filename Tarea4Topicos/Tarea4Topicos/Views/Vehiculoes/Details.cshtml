@@ -22,13 +22,26 @@
         <dd>
             @Html.DisplayFor(model => model.Anio)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.TipoVehiculoRef.Descripcion)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TipoVehiculoRef.Descripcion)
-        </dd>
     </dl>
+    <table class="table">
+        <tr>
+            <th>Id Estacionamiento</th>
+            <th>Parqueo</th>
+            <th>Total a Pagar</th>
+
+
+        </tr>
+        @foreach (var item in Model.ListaEstacionamientos)
+        {
+    <tr>
+        <td>@item.EstacionamientoId</td>
+        <td>@item.ParqueoId.Descripcion</td>
+        <td>@item.TotalAPagar</td>
+
+
+    </tr>
+        }
+    </table>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.VehiculoId">Edit</a> |

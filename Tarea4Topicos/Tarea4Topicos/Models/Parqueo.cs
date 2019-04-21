@@ -9,5 +9,7 @@ namespace Tarea4Topicos.Models
     {
        public int ParqueoId { get; set; }
        public string Descripcion { get; set; }
+
+        public ICollection<Estacionamiento> ListaEstacionamientos { get; set; }
     }
 }
