@@ -9,20 +9,28 @@
 <div>
     <h4>Vehiculo</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Placa)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Placa)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Anio)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Anio)
-        </dd>
-    </dl>
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Placa)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Placa)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Anio)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Anio)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TipoVehiculoRef)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TipoVehiculoRef.Descripcion)
+            </dd>
+        </dl>
+    </div>
     <table class="table">
         <tr>
             <th>Id Estacionamiento</th>
